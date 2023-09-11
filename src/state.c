@@ -24,7 +24,31 @@ static void update_head(game_state_t* state, unsigned int snum);
 /* Task 1 */
 game_state_t* create_default_state() {
   // TODO: Implement this function.
-  return NULL;
+  game_state_t* default_state = malloc(sizeof(game_state_t));
+  default_state->num_rows = 18;
+  
+  default_state->board = malloc(sizeof(char*) * 19);
+    
+  if (default_state->board ==  NULL) {
+      printf("Allocation failed");
+  }
+
+  for (int i = 0; i < 19; i++) {
+      default_state->board[i] = malloc(sizeof(char) * 21);
+  }
+    
+  default_state->board[0] = "####################";
+  default_state->board[17] = "####################";
+  
+  for (int i = 1; i < 17; i++) {
+      if (i == 2) {
+          default_state->board[i] = "# d>D    *         #";
+      } else {  
+         default_state->board[i] = "#                  #";
+      }   
+  }
+
+  return default_state;
 }
 
 /* Task 2 */
