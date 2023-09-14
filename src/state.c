@@ -305,6 +305,7 @@ void update_state(game_state_t* state, int (*add_food)(game_state_t* state)) {
       unsigned int col = our_snake ->head_col;
       unsigned int row = our_snake ->head_row;
       state -> board[row][col] = 'x';
+      our_snake -> live = false;
     } else if (next_square(state, i) == '*') {
       update_head(state, i);
       add_food(state);
