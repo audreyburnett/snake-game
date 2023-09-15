@@ -305,6 +305,7 @@ void update_state(game_state_t* state, int (*add_food)(game_state_t* state)) {
       unsigned int col = our_snake ->head_col;
       unsigned int row = our_snake ->head_row;
       state -> board[row][col] = 'x';
+      our_snake -> live = false;
     } else if (next_square(state, i) == '*') {
       update_head(state, i);
       add_food(state);
@@ -330,11 +331,13 @@ game_state_t* load_board(FILE* fp) {
   
   while (!feof(fp)) {
       state->board = realloc(state->board, sizeof(char*) * (row + 1));
+      free(state->board);
       int col = 0;
       c = fgetc(fp);
 
       while((c != '\n') && !feof(fp)) {
           state->board[row] = realloc(state->board[row], sizeof(char) * (col + 2));
+          free(state->board[row]);
           state->board[row][col] = c;
           
           col++;
