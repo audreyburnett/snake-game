@@ -152,7 +152,7 @@ bool test_is_head() {
   }
 
   char testcase_5 = 'x';
-  bool output_4 = is_head(testcase_5);
+  bool output_5 = is_head(testcase_5);
   if (!assert_true("output_5", output_5)) {
     return false;
   }
@@ -201,25 +201,25 @@ bool test_body_to_tail() {
   // TODO: Implement this function.
   char testcase_1 = '^';
   char out_1 = body_to_tail(testcase_1);
-  if (!assert_true('w' == out_1)) {
+  if (!assert_equals_char("out_1", 'w', out_1)) {
     return false;
   }
 
   char testcase_2 = '<';
   char out_2 = body_to_tail(testcase_2);
-  if (!assert_true('a' == out_2)) {
+  if (!assert_equals_char("out_2", 'a', out_2)) {
     return false;
   }
 
   char testcase_3 = 'v';
   char out_3 = body_to_tail(testcase_3);
-  if (!assert_true('s' == out_3)) {
+  if (!assert_equals_char("out_3", 's', out_3)) {
     return false;
   }
 
   char testcase_4 = '>';
   char out_4 = body_to_tail(testcase_4);
-  if (!assert_true('d' == out_4)) {
+  if (!assert_equals_char("out_4", 'd', out_4)) {
     return false;
   }
   return true;
@@ -229,25 +229,25 @@ bool test_head_to_body() {
   // TODO: Implement this function.
   char testcase_1 = 'W';
   char out_1 = head_to_body(testcase_1);
-  if (!assert_true('^' == out_1)) {
+  if (!assert_equals_char("out_1", '^', out_1)) {
     return false;
   }
 
   char testcase_2 = 'A';
   char out_2 = head_to_body(testcase_2);
-  if (!assert_true('<' == out_2)) {
+  if (!assert_equals_char("out_2", '<', out_2)) {
     return false;
   }
 
   char testcase_3 = 'S';
   char out_3 = head_to_body(testcase_3);
-  if (!assert_true('v' == out_3)) {
+  if (!assert_equals_char("out_3", 'v', out_3)) {
     return false;
   }
 
   char testcase_4 = 'D';
   char out_4 = head_to_body(testcase_4);
-  if (!assert_true('>' == out_4)) {
+  if (!assert_equals_char("out_4", '>', out_4)) {
     return false;
   }
   return true;
@@ -257,39 +257,38 @@ bool test_get_next_row() {
   // TODO: Implement this function.
   int cur_row = 1;
 
-  char testcase_1 = 'v';
-  int out = get_next_row(cur_row, testcase1)
-  if (!assert_true(cur_row == 2)) {
+  int out = get_next_row(cur_row, 'v');
+  if (!assert_equals_int("", 2, out)) {
     return false;
   }
 
   char testcase_2 = 's';
-  int out = get_next_row(cur_row, testcase2)
-  if (!assert_true(cur_row == 2)) {
+  out = get_next_row(cur_row, 's');
+  if (!assert_equals_int("", 2, out)) {
     return false;
   }
 
   char testcase_3 = 'S';
-  int out = get_next_row(cur_row, testcase3)
-  if (!assert_true(cur_row == 2)) {
+  out = get_next_row(cur_row, 'S');
+  if (!assert_equals_int("", 2, out)) {
     return false;
   }
 
   char testcase_4 = '^';
-  int out = get_next_row(cur_row, testcase4)
-  if (!assert_true(cur_row == 0)) {
+  out = get_next_row(cur_row, '^');
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
 
   char testcase_5 = 'w';
-  int out = get_next_row(cur_row, testcase5)
-  if (!assert_true(cur_row == 0)) {
+  out = get_next_row(cur_row, 'w');
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
 
   char testcase_6 = 'W';
-  int out = get_next_row(cur_row, testcase6)
-  if (!assert_true(cur_row == 0)) {
+  out = get_next_row(cur_row, 'W');
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
   return true;
@@ -300,38 +299,38 @@ bool test_get_next_col() {
   int cur_col = 1;
 
   char testcase_1 = '>';
-  int out = get_next_row(cur_col, testcase1)
-  if (!assert_true(cur_col == 2)) {
+  int out = get_next_col(cur_col, testcase_1);
+  if (!assert_equals_int("1", 2, out)) {
     return false;
   }
 
   char testcase_2 = 'd';
-  int out = get_next_row(cur_col, testcase2)
-  if (!assert_true(cur_col == 2)) {
+  out = get_next_col(cur_col, testcase_2);
+  if (!assert_equals_int("2", 2, out)) {
     return false;
   }
 
   char testcase_3 = 'D';
-  int out = get_next_row(cur_col, testcase3)
-  if (!assert_true(cur_col == 2)) {
+  out = get_next_col(cur_col, testcase_3);
+  if (!assert_equals_int("3", 2, out)) {
     return false;
   }
 
   char testcase_4 = '<';
-  int out = get_next_row(cur_col, testcase4)
-  if (!assert_true(cur_col == 0)) {
+  out = get_next_col(cur_col, testcase_4);
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
 
   char testcase_5 = 'a';
-  int out = get_next_row(cur_col, testcase5)
-  if (!assert_true(cur_col == 0)) {
+  out = get_next_col(cur_col, testcase_5);
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
 
   char testcase_6 = 'A';
-  int out = get_next_row(cur_col, testcase6)
-  if (!assert_true(cur_col == 0)) {
+  out = get_next_col(cur_col, testcase_6);
+  if (!assert_equals_int("", 0, out)) {
     return false;
   }
   return true;
